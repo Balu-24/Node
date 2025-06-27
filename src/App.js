@@ -10,7 +10,7 @@ function App() {
   const [deleteId, setDeleteId] = useState("");
 
   const fetchItems = () => {
-    fetch("http://localhost:5000/items")
+    fetch("https://sever-cmhm.onrender.com/items")
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch");
         return res.json();
@@ -26,7 +26,7 @@ function App() {
 
   const addItem = () => {
     if (!newItem.trim()) return;
-    fetch("http://localhost:5000/items", {
+    fetch("https://sever-cmhm.onrender.com/items", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name: newItem }),
@@ -44,7 +44,7 @@ function App() {
 
   const updateItem = () => {
     if (!updateId || !updateName.trim()) return;
-    fetch(`http://localhost:5000/items/${updateId}`, {
+    fetch(`https://sever-cmhm.onrender.com/items/${updateId}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name: updateName }),
@@ -63,7 +63,7 @@ function App() {
 
   const deleteItem = () => {
     if (!deleteId) return;
-    fetch(`http://localhost:5000/items/${deleteId}`, {
+    fetch(`https://sever-cmhm.onrender.com/items/${deleteId}`, {
       method: "DELETE",
     })
       .then((res) => {
